@@ -16,19 +16,19 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.1 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/Project-LegionOS/manifest.git -b s -g default,-mips,-darwin,-notdefault
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b 13-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender-old device/xiaomi/lavender -b thirteen-wip
-git clone --depth=1 https://github.com/AaradhayVijay/vendor_xiaomi_lavender vendor/xiaomi/lavender -b thirteen
-git clone --depth=1 https://github.com/AaradhayVijay/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b thirteen-arrow
-git clone --depth=1 https://github.com/AaradhayVijay/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b thirteen-wip
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sdm8350-common -b crDroid-13
+git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8350-common vendor/xiaomi/sdm8350-common -b lineage-20
 
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b X2
+git clone --depth=1 https://github.com/ashraysingh/android_kernel_xiaomi_sm8350 kernel/xiaomi/sdm8350 -b lineage-20
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
