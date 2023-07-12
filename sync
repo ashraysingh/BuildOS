@@ -30,9 +30,6 @@ git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8
 
 git clone --depth=1 https://github.com/ashraysingh/android_kernel_xiaomi_sm8350 -b lineage-20
 
-#patch
-cd /tmp/rom/packages/apps/crDroidSettings && curl https://github.com/ashraysingh/android_packages_apps_crDroidSettings/commit/b70b554b52680ff0e2c7e177c247b0e55e1fc3fc.patch | git am
-
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
 #rm -rf /tmp/rom/device/xiaomi/lavender/libhidl
