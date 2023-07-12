@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/android.git -b 13.0 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/android.git -b 13.0 --git-lfs
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b 13-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
