@@ -23,12 +23,41 @@ repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS/android_manif
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender-old device/xiaomi/lavender -b thirteen-wip
-git clone --depth=1 https://github.com/AaradhayVijay/vendor_xiaomi_lavender vendor/xiaomi/lavender -b thirteen
-git clone --depth=1 https://github.com/AaradhayVijay/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b thirteen-arrow
-git clone --depth=1 https://github.com/AaradhayVijay/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b thirteen-wip
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8350-common vendor/xiaomi/sm8350-common -b lineage-20
 
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b X2
+# Kernel
+echo 'Cloning kernel tree'
+git clone --depth=1 https://github.com/ashraysingh/android_kernel_xiaomi_sm8350 -b lineage-20 kernel/xiaomi/sm8350
+cd kernel/xiaomi/sm8350
+git submodule init && git submodule update KernelSU
+cd ../../..
+
+# Xiaomi
+echo 'Cloning hardware xiaomi'
+rm -rf hardware/xiaomi && git clone https://github.com/ashraysingh/android_hardware_xiaomi -b lineage-20 hardware/xiaomi
+
+# Firmware
+echo 'Cloning firmware'
+git clone https://gitlab.com/Alucard_Storm/vendor_xiaomi_haydn-firmware -b thirteen vendor/xiaomi/haydn-firmware
+
+# Camera
+echo 'Cloning Leica Camera'
+git clone https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica vendor/xiaomi/haydn-miuicamera
+
+echo 'Adding slow-mo fix for Leica Camera'
+cd hardware/interfaces
+wget https://github.com/Astridxx/android_hardware_interfaces/commit/ca6551863fb82110688452981572d44a26806681.patch
+patch -p1 <ca6551863fb82110688452981572d44a26806681.patch
+cd ../..
+
+echo 'Expose aux camera if packagename is null'
+cd frameworks/base
+wget https://github.com/Octavi-Staging/android_frameworks_base/commit/b7251e7ce3bf2565251f1fa5d35e08cef9c49d41.patch
+patch -p1 <b7251e7ce3bf2565251f1fa5d35e08cef9c49d41.patch
+cd ../..
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 

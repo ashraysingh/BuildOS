@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch arrow_lavender-userdebug
+lunch arrow_haydn-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
