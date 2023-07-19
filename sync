@@ -49,14 +49,14 @@ git clone https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica ve
 
 echo 'Adding slow-mo fix for Leica Camera'
 cd hardware/interfaces
-wget https://github.com/Astridxx/android_hardware_interfaces/commit/ca6551863fb82110688452981572d44a26806681.patch
-patch -p1 <ca6551863fb82110688452981572d44a26806681.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Octavi-13/0003-Update-HIDL-overrideFormat-from-HAL.patch
+patch -p1 <0003-Update-HIDL-overrideFormat-from-HAL.patch
 cd ../..
 
 echo 'Expose aux camera if packagename is null'
 cd frameworks/base
-wget https://github.com/Octavi-Staging/android_frameworks_base/commit/b7251e7ce3bf2565251f1fa5d35e08cef9c49d41.patch
-patch -p1 <b7251e7ce3bf2565251f1fa5d35e08cef9c49d41.patch
+wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Rising-13/0001-Expose-aux-camera-if-packagename-is-null.patch
+patch -p1 <0001-Expose-aux-camera-if-packagename-is-null.patch
 cd ../..
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
