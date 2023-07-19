@@ -43,21 +43,9 @@ rm -rf hardware/xiaomi && git clone https://github.com/ashraysingh/android_hardw
 echo 'Cloning firmware'
 git clone https://gitlab.com/Alucard_Storm/vendor_xiaomi_haydn-firmware -b thirteen vendor/xiaomi/haydn-firmware
 
-# Camera
-echo 'Cloning Leica Camera'
-git clone https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica vendor/xiaomi/haydn-miuicamera
-
-echo 'Adding slow-mo fix for Leica Camera'
-cd hardware/interfaces
-wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Octavi-13/0003-Update-HIDL-overrideFormat-from-HAL.patch
-patch -p1 <0003-Update-HIDL-overrideFormat-from-HAL.patch
-cd ../..
-
-echo 'Expose aux camera if packagename is null'
-cd frameworks/base
-wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Rising-13/0001-Expose-aux-camera-if-packagename-is-null.patch
-patch -p1 <0001-Expose-aux-camera-if-packagename-is-null.patch
-cd ../..
+# Camera Patch
+cd/tmp/rom/frameworks/base && https://github.com/ashraysingh/android_frameworks_base-1/commit/73ed126b580d0733a96f6676c3046c5c62dc3ab9.patch | git am
+cd/tmp/rom/frameworks/base && https://github.com/ashraysingh/android_frameworks_base-1/commit/5caccdb5153d2a5dc02cf8395d83037081e2d1a2.patch | git am
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
