@@ -38,6 +38,7 @@ cd ../../..
 # Xiaomi
 echo 'Cloning hardware xiaomi'
 git clone --depth=1 https://github.com/ashraysingh/android_hardware_xiaomi hardware/xiaomi -b 13.0
+rm -rf /tmp/rom/packages/apps/ParanoidSense
 
 # Firmware
 echo 'Cloning firmware'
@@ -49,8 +50,8 @@ git clone --depth=1 https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirtee
 
 # Camera Patch
 cd /tmp/rom/frameworks/base
-curl https://github.com/ashraysingh/android_frameworks_base-1/commit/45ff9297073b13b27d67f86771a48d744b4530ab.patch | git am
-curl https://github.com/ashraysingh/android_frameworks_base-1/commit/f13400c38286937d86724a05b7a2476e86ab04cf.patch | git am
+curl https://github.com/ashraysingh/android_frameworks_base/commit/32bbd1c46bda44cf497afc951edb0ae4187658fc.patch | git am
+curl https://github.com/ashraysingh/android_frameworks_base/commit/1c79af71ecfd144e45aa20be25061547aec7c6fa.patch | git am
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
