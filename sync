@@ -43,6 +43,10 @@ git clone --depth=1 https://github.com/ashraysingh/android_hardware_xiaomi hardw
 echo 'Cloning firmware'
 git clone https://gitlab.com/Alucard_Storm/vendor_xiaomi_haydn-firmware -b thirteen vendor/xiaomi/haydn-firmware
 
+# Camera
+echo 'Cloning Leica Camera'
+git clone --depth=1 https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica vendor/xiaomi/haydn-miuicamera
+
 # Camera Patch
 cd /tmp/rom/frameworks/base
 curl https://github.com/ashraysingh/android_frameworks_base-1/commit/45ff9297073b13b27d67f86771a48d744b4530ab.patch | git am
