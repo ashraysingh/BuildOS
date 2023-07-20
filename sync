@@ -37,7 +37,7 @@ cd ../../..
 
 # Xiaomi
 echo 'Cloning hardware xiaomi'
-rm -rf hardware/xiaomi && git clone https://github.com/ashraysingh/android_hardware_xiaomi -b lineage-20 hardware/xiaomi
+git clone --depth=1 https://github.com/ashraysingh/android_hardware_xiaomi hardware/xiaomi -b 13.0
 
 # Firmware
 echo 'Cloning firmware'
