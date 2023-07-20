@@ -52,6 +52,7 @@ git clone --depth=1 https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirtee
 cd /tmp/rom/frameworks/base
 curl https://github.com/ashraysingh/android_frameworks_base/commit/32bbd1c46bda44cf497afc951edb0ae4187658fc.patch | git am
 curl https://github.com/ashraysingh/android_frameworks_base/commit/1c79af71ecfd144e45aa20be25061547aec7c6fa.patch | git am
+curl https://github.com/ashraysingh/android_frameworks_base/commit/af5c37ab0427b64cf097b55591e0d8c647aaccee.patch | git am
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
