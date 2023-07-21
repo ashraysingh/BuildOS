@@ -37,7 +37,7 @@ cd ../../..
 
 # Xiaomi
 echo 'Cloning hardware xiaomi'
-git clone --depth=1 https://github.com/ashraysingh/android_hardware_xiaomi hardware/xiaomi -b 13.0
+git clone --depth=1 https://github.com/ashraysingh/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 rm -rf /tmp/rom/packages/apps/ParanoidSense
 
 # Firmware
