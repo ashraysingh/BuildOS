@@ -9,9 +9,11 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 export RELAX_USES_LIBRARY_CHECK=true
 #export TARGET_BOOTANIMATION_RES=1080
 
+# necessary for building gapps rom on retro dynamic
+export WITH_GMS=true
+
 #build_gapps=1
 export ARROW_GAPPS=false
-export WITH_GMS=false
 export WITH_GAPPS=false
 export USE_GAPPS=false
 
