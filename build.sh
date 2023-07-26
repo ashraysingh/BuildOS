@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_haydn-userdebug
+lunch lineage_haydn-eng
 
 # export variable here
 export TZ=Asia/Kolkata
