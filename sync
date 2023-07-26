@@ -40,6 +40,8 @@ rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
 
 #hals
 #sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/*/config/B*Qcom.mk
+#rm -rf vendor/qcom/opensource/commonsys-intf/display
+#rm -rf vendor/qcom/opensource/commonsys/display
 rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media hardware/qcom-caf/sdm660/display
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b 13-caf-sdm660
 #git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf_4.19
