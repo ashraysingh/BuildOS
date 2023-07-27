@@ -30,13 +30,15 @@ git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xia
 
 git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro-oss
 
-git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
+#git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
+git clone --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi -b lineage-20
+#rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
+rm -rf /tmp/rom/packages/apps/ParanoidSense
 
 #rm -rf /tmp/rom/device/qcom/sepolicy-legacy-um
 #git clone --depth=1 https://github.com/ArrowOS/android_device_qcom_sepolicy-legacy-um device/qcom/sepolicy-legacy-um -b arrow-13.1
 
 #rm -rf /tmp/rom/device/xiaomi/lavender/libhidl
-rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
 
 #hals
 #sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/*/config/B*Qcom.mk
@@ -61,7 +63,7 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 # patch
 #rm -rf /tmp/rom/bionic
 #git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
-cd /tmp/rom/bionic
+#cd /tmp/rom/bionic
 # curl https://github.com/wHo-EM-i/bionic/commit/9e3a6c972f82910d2ae0faf56b8db3a0c2bd83a6.patch | git am #revert lib for jemalloc
 # curl https://github.com/wHo-EM-i/bionic/commit/2a8b590dfe23620be18a535420af6a5f7ebaae16.patch | git am #jemalloc
 #curl https://github.com/wHo-EM-i/bionic/commit/e8b68f026fb0d6ce13351c55695a6d6cf2742dff.patch | git am
@@ -75,6 +77,8 @@ cd /tmp/rom/bionic
 #cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 #cd /tmp/rom/device/qcom/common && sed -i 's|include device/qcom/sepolicy-legacy/SEPolicy.mk|-include device/qcom/sepolicy-legacy/SEPolicy.mk|' B*Qcom.mk
 
+cd /tmp/rom/frameworks/base
+curl https://github.com/ashraysingh/android_frameworks_base/commit/af5c37ab0427b64cf097b55591e0d8c647aaccee.patch | git am
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
