@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch arrow_haydn-userdebug
+lunch derp_haydn-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
@@ -22,5 +22,5 @@ export BLISS_BUILD_VARIANT=gapps
 }
 
 compile_plox () {
-make bacon -j16
+make derp -j16
 }

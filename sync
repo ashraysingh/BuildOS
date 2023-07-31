@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.1 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/DerpFest-AOSP/manifest.git -b 13 -g default,-mips,-darwin,-notdefault
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b 13-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
@@ -30,15 +30,14 @@ git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8
 
 # Kernel
 echo 'Cloning kernel tree'
-git clone --depth=1 https://github.com/ashraysingh/android_kernel_xiaomi_sm8350 -b lineage-20 kernel/xiaomi/sm8350
+git clone https://github.com/Astridxx/android_kernel_xiaomi_sm8350.git --recursive --depth=1 -b lineage-20 kernel/xiaomi/sm8350
 cd kernel/xiaomi/sm8350
 git submodule init && git submodule update KernelSU
 cd ../../..
 
 # Xiaomi
 echo 'Cloning hardware xiaomi'
-git clone --depth=1 https://github.com/LineageOS/android_hardware_xiaomi -b lineage-20 hardware/xiaomi
-rm -rf /tmp/rom/packages/apps/ParanoidSense
+rm -rf hardware/xiaomi && git clone --depth=1 https://github.com/LineageOS/android_hardware_xiaomi -b lineage-20 hardware/xiaomi
 
 # Firmware
 echo 'Cloning firmware'
@@ -49,10 +48,17 @@ echo 'Cloning Leica Camera'
 git clone --depth=1 https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica vendor/xiaomi/haydn-miuicamera
 
 # Camera Patch
-cd /tmp/rom/frameworks/base
-curl https://github.com/ashraysingh/android_frameworks_base/commit/32bbd1c46bda44cf497afc951edb0ae4187658fc.patch | git am
-curl https://github.com/ashraysingh/android_frameworks_base/commit/1c79af71ecfd144e45aa20be25061547aec7c6fa.patch | git am
-curl https://github.com/ashraysingh/android_frameworks_base/commit/af5c37ab0427b64cf097b55591e0d8c647aaccee.patch | git am
+echo 'Adding slow-mo fix for Leica Camera'
+cd hardware/interfaces
+wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Octavi-13/0003-Update-HIDL-overrideFormat-from-HAL.patch
+patch -p1 <0003-Update-HIDL-overrideFormat-from-HAL.patch
+cd ../..
+
+echo 'Expose aux camera if packagename is null'
+cd frameworks/base
+wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Rising-13/0001-Expose-aux-camera-if-packagename-is-null.patch
+patch -p1 <0001-Expose-aux-camera-if-packagename-is-null.patch
+cd ../..
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
