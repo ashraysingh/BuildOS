@@ -16,53 +16,54 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.1 -g default,-mips,-darwin,-notdefault
-#git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b 13-4.19 .repo/local_manifests
+repo init --depth=1 --no-repo-verify -u https://github.com/AOSPA/manifest -b topaz -g default,-mips,-darwin,-notdefault
+git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b topaz-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_lavender device/xiaomi/lavender -b 13-oss
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_lavender vendor/xiaomi/lavender -b 13-oss
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13-oss
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13-oss
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_lavender device/xiaomi/lavender -b 13-clo
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_lavender vendor/xiaomi/lavender -b 13-clo
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13-clo
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13-clo
 
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro-oss
+git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/msm-4.19 -b 13-Retro
 
-#git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
-git clone --depth=1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi -b lineage-20
-#rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
-rm -rf /tmp/rom/packages/apps/ParanoidSense
+# libtinyxml
+ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
 
-#rm -rf /tmp/rom/device/qcom/sepolicy-legacy-um
-#git clone --depth=1 https://github.com/ArrowOS/android_device_qcom_sepolicy-legacy-um device/qcom/sepolicy-legacy-um -b arrow-13.1
+# Dolby
+#git clone --depth=1 https://github.com/dib12/vendor_dolby_ds vendor/dolby/ds -b A13
 
-#rm -rf /tmp/rom/device/xiaomi/lavender/libhidl
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_xiaomi hardware/xiaomi -b topaz
+rm -rf /tmp/rom/hardware/xiaomi/hidl/biometrics/fingerprint
+
+rm -rf /tmp/rom/device/qcom/common && git clone https://github.com/AOSPA/android_device_qcom_common -b topaz device/qcom/common && cd device/qcom/common && git revert 2ccc02a1224c745b0892ca3fba79e284d0ac55c9
+cd /tmp/rom
+
+echo "SELINUX_IGNORE_NEVERALLOWS := true" >> device/xiaomi/lavender/B*.mk
 
 #hals
 #sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/*/config/B*Qcom.mk
-#rm -rf vendor/qcom/opensource/commonsys-intf/display
-#rm -rf vendor/qcom/opensource/commonsys/display
-rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media hardware/qcom-caf/sdm660/display
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b 13-caf-sdm660
+#rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media hardware/qcom-caf/sdm660/display
+#git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b 13-caf-sdm660
 #git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf_4.19
 #git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf-sdm660
-git clone --depth=1 https://github.com/pix106/android_hardware_qcom-caf_display hardware/qcom-caf/sdm660/display -b sdm660-4.19-11.2.1.r1
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/android_hardware_qcom_camera hardware/qcom-caf/sdm660/camera -b sdm660-4.19-11.2.1.r1
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
+#git clone --depth=1 https://github.com/pix106/android_hardware_qcom-caf_display hardware/qcom-caf/sdm660/display -b sdm660-4.19-11.2.1.r1
+#git clone --depth=1 https://github.com/pix106/android_hardware_qcom-caf_camera hardware/qcom-caf/sdm660/camera -b sdm660-4.19-11.2.1.r1-clover
+#git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
 
 #test
 #echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
-#sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/bliss/config/B*Qcom.mk
 
-# powerhint
-#rm -rf /tmp/rom/vendor/qcom/opensource/power
-#git clone --depth=1 https://github.com/Nub-XD/vendor_qcom_opensource_power /tmp/rom/vendor/qcom/opensource/power -b t
+#clo-kernel
+mv -f /tmp/rom/kernel/msm-4.19/Androidbp /tmp/rom/kernel/msm-4.19/Android.bp
+mv -f /tmp/rom/kernel/msm-4.19/techpack/audio/Androidbp /tmp/rom/kernel/msm-4.19/techpack/audio/Android.bp
 
 # patch
 #rm -rf /tmp/rom/bionic
-#git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
+#git clone --depth=1 https://github.com/wHo-EM-i/bionic -b topaz
 #cd /tmp/rom/bionic
 # curl https://github.com/wHo-EM-i/bionic/commit/9e3a6c972f82910d2ae0faf56b8db3a0c2bd83a6.patch | git am #revert lib for jemalloc
 # curl https://github.com/wHo-EM-i/bionic/commit/2a8b590dfe23620be18a535420af6a5f7ebaae16.patch | git am #jemalloc
@@ -77,8 +78,6 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 #cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 #cd /tmp/rom/device/qcom/common && sed -i 's|include device/qcom/sepolicy-legacy/SEPolicy.mk|-include device/qcom/sepolicy-legacy/SEPolicy.mk|' B*Qcom.mk
 
-cd /tmp/rom/frameworks/base
-curl https://github.com/ashraysingh/android_frameworks_base/commit/af5c37ab0427b64cf097b55591e0d8c647aaccee.patch | git am
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
