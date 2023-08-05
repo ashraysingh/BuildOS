@@ -30,7 +30,7 @@ git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xia
 
 git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro
 
-git clone --depth=1 https://github.com/PixelExperience/hardware_xiaom hardware/xiaomi -b thirteen
+git clone --depth=1 https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi -b thirteen
 
 rm -rf /tmp/rom/device/qcom/sepolicy-legacy-um
 git clone --depth=1 https://github.com/ArrowOS/android_device_qcom_sepolicy-legacy-um device/qcom/sepolicy-legacy-um -b arrow-13.1
