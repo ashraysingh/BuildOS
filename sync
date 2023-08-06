@@ -58,13 +58,13 @@ sed -i 's|org.lineageos.settings.resources|org.pixelexperience.settings.resource
 #git clone --depth=1 https://github.com/Nub-XD/vendor_qcom_opensource_power /tmp/rom/vendor/qcom/opensource/power -b t
 
 # patch
-#rm -rf /tmp/rom/bionic
-#git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
-cd /tmp/rom/bionic
+rm -rf /tmp/rom/bionic
+git clone --depth=1 https://github.com/wHo-EM-i/bionic bionic -b pe13
+#cd /tmp/rom/bionic
 #curl https://github.com/wHo-EM-i/bionic/commit/9e3a6c972f82910d2ae0faf56b8db3a0c2bd83a6.patch | git am #revert lib for jemalloc
 #curl https://github.com/wHo-EM-i/bionic/commit/2a8b590dfe23620be18a535420af6a5f7ebaae16.patch | git am #jemalloc
-curl https://github.com/wHo-EM-i/bionic/commit/3619b07c81bc99a4f584611031655ba997ff649e.patch | git am #optimization
-curl https://github.com/wHo-EM-i/bionic/commit/c6885524f1b1d71f671ddde3deaa21bdb68c879b.patch | git am #optimization
+#curl https://github.com/wHo-EM-i/bionic/commit/3619b07c81bc99a4f584611031655ba997ff649e.patch | git am #optimization
+#curl https://github.com/wHo-EM-i/bionic/commit/c6885524f1b1d71f671ddde3deaa21bdb68c879b.patch | git am #optimization
 #curl https://github.com/wHo-EM-i/bionic/commit/e8b68f026fb0d6ce13351c55695a6d6cf2742dff.patch | git am #camfix
 #curl https://github.com/wHo-EM-i/bionic/commit/8bfccafe0a7c5d2584ce0aa414c846a13caee07b.patch | git am #camfix
 #curl https://github.com/wHo-EM-i/bionic/commit/6db6121472c45316bc6135f05da38227fdc9962e.patch | git am #camfix
