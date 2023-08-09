@@ -65,7 +65,7 @@ git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
 
 # webview issue due to file lfs file format
 rm -rf /tmp/rom/external/chromium-webview/prebuilt/arm64
-git clone --depth=1 https://gitlab.com/dib12/webview -b master /tmp/rom/external/chromium-webview/prebuilt/arm64
+git clone --depth=1 https://gitlab.com/dib12/webview /tmp/rom/external/chromium-webview/prebuilt/arm64
 
 #cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 #cd /tmp/rom/device/qcom/common && sed -i 's|include device/qcom/sepolicy-legacy/SEPolicy.mk|-include device/qcom/sepolicy-legacy/SEPolicy.mk|' B*Qcom.mk
