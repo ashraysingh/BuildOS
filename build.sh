@@ -26,5 +26,5 @@ export BLISS_BUILD_VARIANT=gapps
 }
 
 compile_plox () {
-make bacon -j16
+make bacon -j10
 }
