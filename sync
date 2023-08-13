@@ -25,7 +25,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_lavender device/xiaomi/lavender -b 13
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_lavender vendor/xiaomi/lavender -b 13
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13-misound
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13
 
 git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro
@@ -65,7 +65,7 @@ git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
 #curl https://github.com/wHo-EM-i/bionic/commit/6db6121472c45316bc6135f05da38227fdc9962e.patch | git am
 
 # webview issue due to file lfs file format
-rm -rf /tmp/rom/external/chromium-webview/prebuilt/arm64
+rm -rf /tmp/rom/external/chromium-webview/prebuilt/arm64/
 git clone --depth=1 https://gitlab.com/dib12/webview /tmp/rom/external/chromium-webview/prebuilt/arm64
 
 #cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
