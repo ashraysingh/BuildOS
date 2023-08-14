@@ -8,7 +8,6 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 #export BUILD_BROKEN_DUP_RULES=true
 export RELAX_USES_LIBRARY_CHECK=true
 #export TARGET_BOOTANIMATION_RES=1080
-export TARGET_ENFORCES_QSSI=true
 
 #build_gapps=1
 export ARROW_GAPPS=false
