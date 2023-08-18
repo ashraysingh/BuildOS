@@ -23,7 +23,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 # tree
 git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b superior
-git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b hax-20
 git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b superior
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8350-common vendor/xiaomi/sm8350-common -b lineage-20
 
