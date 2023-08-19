@@ -16,15 +16,15 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ashraysingh/manifest.git -b thirteen -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/Havoc-OS/android_manifest.git -b thirteen --git-lfs
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b superior
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b havoc-13
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b hax-20
-git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b superior
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b havoc-13
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8350-common vendor/xiaomi/sm8350-common -b lineage-20
 
 # Kernel
@@ -37,6 +37,7 @@ cd ../../..
 # Xiaomi
 echo 'Cloning hardware xiaomi'
 rm -rf hardware/xiaomi && git clone --depth=1 https://github.com/LineageOS/android_hardware_xiaomi -b lineage-20 hardware/xiaomi
+rm -rf /tmp/rom/packages/apps/ParanoidSense/*.bp
 
 # Firmware
 echo 'Cloning firmware'
@@ -60,6 +61,11 @@ wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Rising-13/0003-Add-b
 patch -p1 <0001-Expose-aux-camera-if-packagename-is-null.patch
 patch -p1 <0002-Dont-crash-when-checking-input-configuration-failed.patch
 patch -p1 <0003-Add-backwards-compatible-CaptureResultExtras-constructor.patch
+cd ../..
+
+# Sense Provider Patch
+cd /tmp/rom/frameworks/base
+curl https://github.com/ashraysingh/android_frameworks_base/commit/ad7eecfd0499690060d61747efe2a60bbc77b278.patch | git am
 cd ../..
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
