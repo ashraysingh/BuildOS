@@ -38,6 +38,7 @@ cd ../../..
 echo 'Cloning hardware xiaomi'
 rm -rf hardware/xiaomi && git clone --depth=1 https://github.com/LineageOS/android_hardware_xiaomi -b lineage-20 hardware/xiaomi
 rm -rf /tmp/rom/packages/apps/ParanoidSense/*.bp
+rm -rf /tmp/rom/vendor/google/interfaces/google_battery/Android.bp
 
 # Firmware
 echo 'Cloning firmware'
