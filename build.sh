@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch superior_haydn-userdebug
+lunch cherish_haydn-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
