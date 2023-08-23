@@ -16,15 +16,15 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ashraysingh/manifest.git -b thirteen -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/SuperiorExtended/manifest.git -b thirteen -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b superior
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b superior-extended
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b hax-20
-git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b superior
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b extended
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8350-common vendor/xiaomi/sm8350-common -b lineage-20
 
 # Kernel
