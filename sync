@@ -19,8 +19,8 @@ fi
 repo init --depth=1 --no-repo-verify -u https://github.com/LineageOS/android.git -b lineage-20.0 -g default,-mips,-darwin,-notdefault
 git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b lineage .repo/local_manifests
 
-# Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
+# Sync source without unnecessary messages, try with -j10 first, if fails, it will try again
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 # tree
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_lavender device/xiaomi/lavender -b 13-wip

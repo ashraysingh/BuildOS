@@ -6,7 +6,7 @@ lunch lineage_lavender-userdebug
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 #export BUILD_BROKEN_DUP_RULES=true
-export RELAX_USES_LIBRARY_CHECK=true
+#export RELAX_USES_LIBRARY_CHECK=true
 #export TARGET_BOOTANIMATION_RES=1080
 
 #build_gapps=1
@@ -25,5 +25,5 @@ export BLISS_BUILD_VARIANT=gapps
 }
 
 compile_plox () {
-make bacon -j12
+make bacon -j8
 }
