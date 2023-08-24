@@ -46,12 +46,7 @@ git clone https://gitlab.com/Alucard_Storm/vendor_xiaomi_haydn-firmware -b thirt
 echo 'Cloning Leica Camera'
 git clone --depth=1 https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica vendor/xiaomi/haydn-miuicamera
 
-# Camera Patch
-echo 'Adding Slowmo fix for Leica camera'
-cd hardware/interfaces
-wget https://raw.githubusercontent.com/Astridxx/Patch-Haydn/main/Octavi/0003-Update-HIDL-overrideFormat-from-HAL.patch
-patch -p1 <0003-Update-HIDL-overrideFormat-from-HAL.patch
-cd ../..
+
 
 
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
