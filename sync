@@ -25,7 +25,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b Arrow-13.1
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b lineage-20
-git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b test
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b Arrow-13.1
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8350-common vendor/xiaomi/sm8350-common -b lineage-20
 
 # Kernel
@@ -42,11 +42,11 @@ rm -rf /tmp/rom/packages/apps/ParanoidSense
 
 # Firmware
 echo 'Cloning firmware'
-git clone https://gitlab.com/ashraysingh/vendor_xiaomi_haydn-firmware -b thirteen vendor/xiaomi/haydn-firmware
+git clone --depth=1 https://gitlab.com/Alucard_Storm/vendor_xiaomi_haydn-firmware -b thirteen vendor/xiaomi/haydn-firmware
 
 # Camera
-echo 'Cloning Leica Camera'
-git clone --depth=1 https://gitlab.com/ashraysingh/haydn-miuicamera -b test vendor/xiaomi/haydn-miuicamera
+echo 'Cloning Leica camera'
+git clone --depth=1 https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica vendor/xiaomi/haydn-miuicamera
 
 # Camera Patch
 cd /tmp/rom/frameworks/base
