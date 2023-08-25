@@ -23,9 +23,9 @@ repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS/android_manif
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_haydn device/xiaomi/haydn -b Arrow-13.1
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_haydn vendor/xiaomi/haydn -b lineage-20
-git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b lineage-20
+git clone --depth=1 https://github.com/ashraysingh/android_device_xiaomi_sm8350-common device/xiaomi/sm8350-common -b Arrow-13.1
 git clone --depth=1 https://github.com/ashraysingh/proprietary_vendor_xiaomi_sm8350-common vendor/xiaomi/sm8350-common -b lineage-20
 
 # Kernel
