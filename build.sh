@@ -9,7 +9,7 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 export RELAX_USES_LIBRARY_CHECK=true
 #export TARGET_BOOTANIMATION_RES=1080
 
-build_gapps=0
+#build_gapps=0
 #export ARROW_GAPPS=true
 #export WITH_GMS=false
 #export WITH_GAPPS=false
@@ -22,5 +22,5 @@ export BLISS_BUILD_VARIANT=gapps
 }
 
 compile_plox () {
-make derp -j16
+make derp -j12
 }

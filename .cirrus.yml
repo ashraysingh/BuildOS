@@ -8,7 +8,7 @@ env: # Environment variables to pass to all tasks
     bot_api: "ENCRYPTED[85b1a77f21633ef373fd0287aade3ad313786d9c7ddd47763a7e5897b5b87506d7a59b23fd289104f003963e0ec7a97e]"
     chat_id: "-1001675070042"
     v_core: "16"
-    s_core: "16"
+    s_core: "12"
     git_cookies: 0
     REAL_REPO_OWNER: "ashraysingh" # main id
 
