@@ -46,21 +46,12 @@ git clone https://gitlab.com/Alucard_Storm/vendor_xiaomi_haydn-firmware -b thirt
 echo 'Cloning Leica Camera'
 git clone --depth=1 https://gitlab.com/Alucard_Storm/haydn-miuicamera -b thirteen-leica vendor/xiaomi/haydn-miuicamera
 
-echo 'Adding slow-mo fix for Leica Camera'
-cd hardware/interfaces
-wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Octavi-13/0003-Update-HIDL-overrideFormat-from-HAL.patch
-patch -p1 <0003-Update-HIDL-overrideFormat-from-HAL.patch
+echo 'Add backwards compatible CaptureResultExtras constructor'
+cd frameworks/base
+wget https://raw.githubusercontent.com/Astridxx/Patch-Haydn/main/Derpfest/0001-Add-backwards-compatible-CaptureResultExtras-constructor.patch
+patch -p1 <0001-Add-backwards-compatible-CaptureResultExtras-constructor.patch
 cd ../..
 
-echo 'Expose aux camera if packagename is null'
-cd frameworks/base
-wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Rising-13/0001-Expose-aux-camera-if-packagename-is-null.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Rising-13/0002-Dont-crash-when-checking-input-configuration-failed.patch
-wget https://raw.githubusercontent.com/Astridxx/Patch-haydn/Rising-13/0003-Add-backwards-compatible-CaptureResultExtras-constructor.patch
-patch -p1 <0001-Expose-aux-camera-if-packagename-is-null.patch
-patch -p1 <0002-Dont-crash-when-checking-input-configuration-failed.patch
-patch -p1 <0003-Add-backwards-compatible-CaptureResultExtras-constructor.patch
-cd ../..
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
 #rm -rf /tmp/rom/device/xiaomi/lavender/libhidl
