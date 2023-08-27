@@ -22,5 +22,5 @@ export BLISS_BUILD_VARIANT=gapps
 }
 
 compile_plox () {
-make derp -j16
+make derp -j10
 }
