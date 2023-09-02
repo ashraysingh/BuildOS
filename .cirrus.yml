@@ -24,6 +24,8 @@ task:
       image: nexgang/ubuntu:latest
       cpu: 8
       memory: 32G
+      volume_size: 220
+      disk: 220
       stateful: true
       greedy: true
     down_background_script:
